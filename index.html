@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Sadek - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <header>
+        <div class="profile">
+            <h1>Mohamed Sadek</h1>
+            <h2>Electronique & Mechanical & Robotics </h2>
+            <div class="profile-picture-container"></div>
+            <img id="profile-picture" src="/Image/Profil.jpg" alt="Profile Picture" class="profile-picture">   
+            <div class="translate header-text">        
+                <p >Welcome to my portfolio! Whether you're a recruiter scouting for talent, a fellow engineer seeking inspiration, a friend dropping by, or even a lost stranger stumbling upon this digital space,</p>
+                <p > extend a warm greeting to you. I trust that your journey through these pages will be both enlightening and enjoyable. Let's embark on this exploration together, shall we?</p>
+            </div>
+        </div>
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="#home" class="translate">Home</a></li>
+                <li><a href="#experience" class="translate">Experience</a></li>
+                <li><a href="#Skills" class="translate">Skills</a></li>
+                <li><a href="#Projects" class="translate">Projects</a></li>
+                <li class="resume-dropdown">
+                    <a href="#" class="translate">Resume</a>
+                    <ul class="dropdown-content">
+                        <li><a href="PDF/CV_GER.pdf" target="_blank" class="translate">German</a></li>
+                        <li><a href="PDF/CV_FR.pdf" target="_blank" class="translate">French</a></li>
+                        <li><a href="PDF/CV_ENG.pdf" target="_blank" class="translate">English</a></li>
+                        <li><a href="PDF/CV_RUSS.pdf" target="_blank" class="translate">Russian</a></li>
+                    </ul>
+                </li>
+                <li><a href="PDF/DEP.pdf" target="_blank" class="translate">Deplome</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu" id="hamburger-menu">
+            &#9776; <!-- This is the hamburger menu icon -->
+        </div>
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="#home" class="translate">Home</a></li>
+                <li><a href="#experience" class="translate">Experience</a></li>
+                <li><a href="#Skills" class="translate">Skills</a></li>
+                <li><a href="#Projects" class="translate">Projects</a></li>
+                <li class="resume-dropdown">
+                    <a href="#" class="translate">Resume</a>
+                    <ul class="dropdown-content">
+                        <li><a href="PDF/CV_GER.pdf" target="_blank" class="translate">German</a></li>
+                        <li><a href="PDF/CV_FR.pdf" target="_blank" class="translate">French</a></li>
+                        <li><a href="PDF/CV_ENG.pdf" target="_blank" class="translate">English</a></li>
+                        <li><a href="PDF/CV_RUSS.pdf" target="_blank" class="translate">Russian</a></li>
+                    </ul>
+                </li>
+                <li><a href="PDF/DEP.pdf" target="_blank" class="translate">Deplome</a></li>
+            </ul>
+        </nav>
+
+        <!-- Language Dropdown -->
+        <div class="language-selector">
+            <button class="language-btn">🌐</button>
+            <div class="language-dropdown">
+                <a href="#">English</a>
+                <a href="#">French</a>
+                <a href="#">German</a>
+                <a href="#">Russian</a>
+            </div>
+        </div>
+    </header>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const projects = document.querySelectorAll('.project');
+            const projectNumbers = document.querySelectorAll('.project-number');
+            const prevButton = document.querySelector('.prev');
+            const nextButton = document.querySelector('.next');
+            const projectsPerPage = 6;
+            let currentPage = 1;
+    
+            function showPage(page) {
+                const start = (page - 1) * projectsPerPage;
+                const end = start + projectsPerPage;
+    
+                projects.forEach((project, index) => {
+                    project.style.display = (index >= start && index < end) ? 'block' : 'none';
+                });
+    
+                projectNumbers.forEach((number, index) => {
+                    number.classList.toggle('active', index === (page - 1));
+                });
+    
+                prevButton.disabled = (page === 1);
+                nextButton.disabled = (page === Math.ceil(projects.length / projectsPerPage));
+            }
+    
+            projectNumbers.forEach((number, index) => {
+                number.addEventListener('click', () => {
+                    currentPage = index + 1;
+                    showPage(currentPage);
+                });
+            });
+    
+            prevButton.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    showPage(currentPage);
+                }
+            });
+    
+            nextButton.addEventListener('click', () => {
+                if (currentPage < Math.ceil(projects.length / projectsPerPage)) {
+                    currentPage++;
+                    showPage(currentPage);
+                }
+            });
+    
+            showPage(currentPage);
+        });
+    </script>
+    
+
+    <section id="home">
+        <div class="intro">
+            <p class="translate">I am a specialist in electromechanical systems automation, with a strong foundation in robotics and electronics. My passion lies in creating and perfecting robotic systems, continuously enhancing my technical skill set through hands-on projects and innovative problem-solving.</p>
+            <p class="translate">I am currently developing myself in robotics and working on several projects. Additionally, I am open to new work opportunities where I can apply my expertise in diagnosing and repairing complex automated systems.</p>
+            <p class="translate">With large experience in industrial and R&D settings and creating projects, I have honed my ability to quickly identify and resolve issues in automated systems, utilizing my deep technical knowledge and practical skills.</p>
+            <p class="translate">In my free time, I enjoy reading, traveling, and engaging in various sports. I also dedicate time to helping aspiring engineers by sharing my knowledge of robotics and electronics through community workshops.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mohamed2sadek/"><img src="Image/linkedin.png" alt="LinkedIn"></a>
+                <a href="https://www.facebook.com/profile.php?id=100012874336048"><img src="Image/facebook.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/kluge_kopf/"><img src="Image/instagram.png" alt="Image/instagram"></a>
+                <a href="https://github.com/Sadek-21"><img src="Image/github.png" alt="Github"></a>
+                <a href=""><img src="Image/discorde.png" alt="Discord"></a>
+                <a href="mailto:mohsade2000@gmail.com"><img src="Image/gmail.png" alt="Email"></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Where I've Worked</h2>
+        <div class="experience-gallery">
+            <div class="experience-item">
+                <img src="Image/aptiv.png" alt="aptiv">
+                <p>Technician de Maintenance - APTIV MEKNES</p>
+            </div>
+            <div class="experience-item">
+                <img src="Image/HUILERIES.jpg" alt="HUILERIES">
+                <p>Technician Electric - LES HUILERIES DE MEKNES</p>
+            </div>
+            <div class="experience-item">
+                <img src="Image/SoliMar.jpg" alt="SoliMar">
+                <p>Technician - SoliMar "energie solaire"</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="academics">
+        <h2>Academics</h2>
+        <div class="academic-background">
+            <div class="academic-item">
+                <h3>Baccalauréat</h3>
+                <p>Lycée Youssef Ben Tachfine</p>
+                <p>2018-2019</p>
+            </div>
+            <div class="academic-item">
+                <h3>Diplôme de Technicien Spécialisé en Électromécanique des Systèmes Automatisés</h3>
+                <p>Institut Spécialisé de Technologie Appliquée</p>
+                <p>2019-2021</p>
+            </div>
+            <div class="academic-item">
+                <h3>Université Moulay Ismail</h3>
+                <p>Bachelor's Degree in Electromechanical Engineering</p>
+                <p>Current</p>
+            </div>
+            <div class="academic-item">
+                <h3>ALX Software Engineering Program</h3>
+                <p>Current</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="Projects" class="Projects-section">
+        <h2>Projects</h2>
+        <div class="skills-categories">
+        <div class="project-container">
+            <div class="project">
+                <a href="project1.html">
+                    <img src="Image/battry.jpg" alt="Project 1">
+                    <p>Battry_Capacity_Meter</p>
+                </a>
+            </div>
+            <div class="project">
+                <a href="project5.html">
+                    <img src="Image/Parking.jpg" alt="Project 5">
+                    <p>Project_Parking</p>
+                </a>
+            </div>
+            <div class="project-container">
+                <div class="project">
+                    <a href="project3.html">
+                        <img src="Image/Truck.jpg" alt="Project 3">
+                        <p>Truck_Sand</p>
+                    </a>
+                </div>
+                <div class="project">
+                    <a href="project4.html">
+                        <img src="Image/G_H_T.jpg" alt="Project 4">
+                        <p>priject_HUM_GAS_AIR</p>
+                    </a>
+                </div>
+                <div class="project">
+                    <a href="project2.html">
+                        <img src="Image/ARM.jpg" alt="Project 2">
+                        <p>AREmoExo</p>
+                    </a>
+                
+                </div>
+                <div class="project">
+                    <a href="project6.html">
+                        <img src="Image/simcard_code.png" alt="Project 6">
+                        <p>simcard_code</p>
+                    </a>
+                </div>
+                <div class="project-container">
+                    <div class="project">
+                        <a href="project7.html">
+                            <img src="Image/Electronic_Lock.png" alt="Project 7">
+                            <p>Electronic_Lock</p>
+                        </a>
+                    </div>
+                    <div class="project">
+                        <a href="project8.html">
+                            <img src="Image/GasSensor.png" alt="Project 8">
+                            <p>GasSensor</p>
+                        </a>
+                    </div>
+                    <div class="project-container">
+                        <div class="project">
+                            <a href="project7.html">
+                                <img src="Image/drip_watering_system.png" alt="Project 9">
+                                <p>drip_watering_system</p>
+                            </a>
+                        </div>
+                        <div class="project">
+                            <a href="project8.html">
+                                <img src="Image/ROBOT CAR.png" alt="Project 10">
+                                <p>ROBOT CAR</p>
+                            </a>
+                        </div>
+                    </div>
+                        
+                    
+        </div>
+        <div class="navigation">
+            <button class="prev">Prev</button>
+            <div class="project-numbers">
+                <span class="project-number active">1</span>
+                <span class="project-number">2</span>
+                <span class="project-number">3</span>
+                <!-- Add more project numbers as needed -->
+            </div>
+            <button class="next">Next</button>
+        </div>
+    </section>
+
+
+    <section id="Skills" class="skills-section">
+        <h2>Skills</h2>
+        <div class="skills-categories">
+            <div class="skills-category">
+                <h3>Programming</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>C</li>
+                    <li>C++</li>
+                    <li>JAVA</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>C++ (Arduino)</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h3>Software</h3>
+                <ul>
+                    <li>CAD (SolidWorks)</li>
+                    <li>3D Printing</li>
+                    <li>PLM</li>
+                    <li>unity Pro XL</li>
+                    <li>Proteus </li>
+                    <li>Git</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h3>Hands-On</h3>
+                <ul>
+                    <li>CNC Machines</li>
+                    <li>Soldering & Circuits</li>
+                    <li>Power & Hand Tools</li>
+                    <li>Lathe & Milling </li>
+                    <li>Additive Manufacturing</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h3>Others</h3>
+                <ul>
+                    <li>Product Design</li>
+                    <li>Sensors & Actuators</li>
+                    <li>Modelling & Simulation</li>
+                    <li>Troubleshooting</li>
+                    <li>Robot Modeling </li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h3>Languages</h3>
+                <ul>
+                    <li>Arabic</li>
+                    <li>English </li>
+                    <li>Allmend(Zertifikat_B2)</li>
+                    <li>French</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="feedback-section">
+        <p>If you like this content, drop me a message here. I'm always happy to hear your feedback!</p>
+        <form id="feedback-form" action="/send-feedback" method="POST">
+            <div class="form-group">
+                <label for="name"></label>
+                <input type="text" id="name" name="name" required placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="email"></label>
+                <input type="email" id="email" name="email" required placeholder="E-mail">
+            </div>
+            <div class="form-group">
+                <label for="message"></label>
+                <textarea id="message" name="message" rows="4" required placeholder="Message"></textarea>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+
+
+
+    
+
+
+    <footer>
+        <p>&copy; 2024 Mohamed Sadek. All rights reserved.</p>
+        <div class="footer-buttons">
+            <a href="mailto:mohsade2000@gmail.com" class="email-btn">Email</a>
+            <a href="PDF/CVmohamed sadek.pdf" target="_blank" class="resume-btn">Download Resume</a>
+        </div>
+        <p>Thank you for being here.</p>
+        <p>Feel free to connect with me via email for any opportunities that may arise or simply to exchange greetings. Should you wish to advocate for the value I can bring to your organization, you're welcome to download my resume and share it with relevant contacts. I'm eager to explore potential collaborations and look forward to hearing from you soon.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const languageBtn = document.querySelector('.language-btn');
+            const languageDropdown = document.querySelector('.language-dropdown');
+            
+            languageBtn.addEventListener('click', () => {
+                languageDropdown.classList.toggle('show');
+            });
+            
+            // Add functionality to change language
+            document.querySelectorAll('.language-dropdown a').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const selectedLanguage = item.textContent;
+                    switchLanguage(selectedLanguage);
+                });
+            });
+            
+            // Function to switch language content
+            function switchLanguage(language) {
+                // Replace content based on language
+                const elementsToTranslate = document.querySelectorAll('.translate');
+                elementsToTranslate.forEach(element => {
+                    switch (language) {
+                        case 'English':
+                            // Set English content
+                            setEnglishContent(element);
+                            break;
+                        case 'French':
+                            // Set French content
+                            setFrenchContent(element);
+                            break;
+                        case 'German':
+                            // Set German content
+                            setGermanContent(element);
+                            break;
+                        case 'Russian':
+                            // Set Russian content
+                            setRussianContent(element);
+                            break;
+                        default:
+                            break;
+                    }
+                });
+                alert(`Language switched to: ${language}`);
+            }
+
+            // Function to set French content
+// Function to set French content
+function setFrenchContent(element) {
+    if (element.classList.contains('header-text')) {
+        element.textContent = "Bienvenue dans mon portfolio ! Que vous soyez un recruteur à la recherche de talents, un ingénieur à la recherche d'inspiration, un ami de passage, ou même un étranger égaré tombant par hasard sur cet espace numérique, je vous adresse un chaleureux salut. Je suis convaincu que votre voyage à travers ces pages sera à la fois enrichissant et agréable. Embarquons ensemble dans cette exploration, voulez-vous ?";
+    } else if (element.classList.contains('feedback-label-name')) {
+        element.textContent = "Nom :";
+    } 
+}
+
+function setEnglishContent(element) {
+    // Example: Set English content for each element
+    if (element.classList.contains('header-text')) {
+        element.textContent = "Welcome to my portfolio! Whether you're a recruiter scouting for talent, a fellow engineer seeking inspiration, a friend dropping by, or even a lost stranger stumbling upon this digital space, I extend a warm greeting to you. I trust that your journey through these pages will be both enlightening and enjoyable. Let's embark on this exploration together, shall we?";
+    } else if (element.classList.contains('feedback-label-name')) {
+        element.textContent = "Name:";
+    } else if (element.classList.contains('feedback-label-email')) {
+        element.textContent = "Email:";
+    } else if (element.classList.contains('feedback-label-message')) {
+        element.textContent = "Message:";
+    }
+    // Add more elements and content as needed
+}
+
+
+// Function to set German content
+function setGermanContent(element) {
+    // Example: Set German content for each element
+    if (element.classList.contains('header-text')) {
+        element.textContent = "Willkommen in meinem Portfolio! Egal, ob Sie ein Personalvermittler auf der Suche nach Talenten, ein Ingenieur auf der Suche nach Inspiration, ein Freund, der vorbeischaut, oder sogar ein verlorener Fremder sind, der auf diesen digitalen Raum stößt, ich grüße Sie herzlich. Ich bin überzeugt, dass Ihre Reise durch diese Seiten sowohl aufschlussreich als auch angenehm sein wird. Lassen Sie uns gemeinsam auf diese Entdeckungsreise gehen, sollen wir?";
+    } else if (element.classList.contains('feedback-label-name')) {
+        element.textContent = "Name :";
+    } else if (element.classList.contains('feedback-label-email')) {
+        element.textContent = "E-Mail :";
+    } else if (element.classList.contains('feedback-label-message')) {
+        element.textContent = "Nachricht :";
+    }
+    // Add more elements and content as needed
+}
+
+// Function to set Russian content
+function setRussianContent(element) {
+    // Example: Set Russian content for each element
+    if (element.classList.contains('header-text')) {
+        element.textContent = "Добро пожаловать в мое портфолио! Будь то рекрутер, ищущий таланты, коллега-инженер, ищущий вдохновение, друг, забегающий на огонек, или даже потерянный незнакомец, наткнувшийся на этот цифровой простор, я искренне приветствую вас. Я уверен, что ваше путешествие через эти страницы будет как просветительно, так и приятно. Давайте отправимся в этот исследовательский путь вместе, не так ли?";
+    } else if (element.classList.contains('feedback-label-name')) {
+        element.textContent = "Имя:";
+    } else if (element.classList.contains('feedback-label-email')) {
+        element.textContent = "Электронная почта:";
+    } else if (element.classList.contains('feedback-label-message')) {
+        element.textContent = "Сообщение:";
+    }
+    // Add more elements and content as needed
+}
+
+
+
+});
+</script>
+
+    
+</body>
+
+</html>
+
